@@ -1,0 +1,18 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Google Maps
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- <div #map id="map"></div> -->
+
+
+  <ion-list *ngFor ="let item of newData">
+
+    <h2>{{item.created_at}}</h2>
+
+  </ion-list>
+</ion-content>
