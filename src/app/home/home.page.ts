@@ -4,8 +4,6 @@ import {HttpClient} from "@angular/common/http";
 //import { environment } from './../../environments/environment.prod';
 import { LoadingController } from '@ionic/angular';
 
-
-
 declare var google : any;
 @Component({
   selector: 'app-home',
@@ -25,7 +23,6 @@ export class HomePage {
 
   constructor(private http:HttpClient , public loadingController: LoadingController) {}
 
-
   //set loader to loard data
   async presentLoading() {
     const loading = await this.loadingController.create({
@@ -36,7 +33,6 @@ export class HomePage {
     await loading.present();
   }
 
-
   ionViewDidEnter(){
     this.presentLoading();
     this.showMap();
@@ -44,7 +40,6 @@ export class HomePage {
 
   }
   
-
   //show map on home page
   showMap(){
     const location_srilanka = new google.maps.LatLng(7.8731,80.7718);
