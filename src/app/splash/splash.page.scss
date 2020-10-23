@@ -1,10 +1,10 @@
 .img-splach{
     border-radius: 4%;
-    height: 40%;
-
+    height: 35%
 }
 
 .tit-splash{
+    text-align: center;
     font-size: 18px;
     margin-left: 5px;
     font-weight: bold;
@@ -12,7 +12,7 @@
 
 .btn{
     width: 100%;
-    margin-top:25%;
+    margin-top:15%;
 }
 .con-splash{
 
@@ -20,4 +20,39 @@
     font-size: 14px;
     font-weight: 400;
 
+}
+
+.btn-1{
+    width: 100%;
+
+}
+
+.btn-2{
+    width: 100%;
+
+}
+
+.tit{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 0%;
+}
+
+.det-cvd-1{
+    text-align: center;
+    margin-bottom: 0%;
+    color: #fdb01a;
+}
+
+.det-cvd-2{
+    text-align: center;
+    margin-bottom: 0%;
+    color: #e3342f;
+}
+.det-cvd-3{
+    text-align: center;
+    margin-bottom: 0%;
+    margin-top: 0%;
+    color:#7052fb;
 }

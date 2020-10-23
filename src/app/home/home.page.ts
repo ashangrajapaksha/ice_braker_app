@@ -13,7 +13,8 @@ declare var google : any;
 export class HomePage {
 
   newData =[];
-  latestData=[]
+  latestData=[];
+
 
   map:any;
  
@@ -26,7 +27,6 @@ export class HomePage {
   //set loader to loard data
   async presentLoading() {
     const loading = await this.loadingController.create({
-
       message: 'Please wait...',
       translucent: true,
     });
@@ -45,8 +45,10 @@ export class HomePage {
     const location_srilanka = new google.maps.LatLng(7.8731,80.7718);
     const options = {
       center:location_srilanka,
-      zoom:8,
-      disableDefaultUI :true
+      zoom:7.3,
+      disableDefaultUI :true,
+      mapTypeControl: true,
+      zoomControl: true,
     } 
     this.map = new google.maps.Map(this.mapRef.nativeElement , options);
 
@@ -55,7 +57,7 @@ export class HomePage {
 
   //get data from HBP api and pass data to google api and find placess.
   getdata(){
-    this.http.get(" https://hpb.health.gov.lk/api/get-current-statistical/").subscribe((data:any)=>{ 
+    this.http.get(" https://hpb.health.gov.lk/api/get-current-statistical/").subscribe((data:any)=>{
       for (let place in data.data.hospital_data) {
        let title=data.data.hospital_data[place]['hospital']['name'];
        let cumulative_local = data.data.hospital_data[place]['cumulative_local'];
@@ -88,16 +90,18 @@ export class HomePage {
     let infoWindowContent = '<div id="content">' +
     '<div id="siteNotice">' +
     "</div>" +
-    '<h4 id="firstHeading" class="firstHeading">Covid-19 Treatment Hospital - Sri lanaka</h4>' +
-    '<h5>'+marker.title+'</h5>'+
+    '<h6>'+marker.title+'</h5>'+
     '<h6>'+"<small>treated_local :</small>"+'<small>'+marker.cumalative_local+'</small>'+'</h>'+
-    '<h6>'+"<small>currently on treatment :</small>"+'<small>'+marker.treatment_local+'</small>'+'</h6>'+
+    '<h6>'+"<small>currently treatment :</small>"+'<small>'+marker.treatment_local+'</small>'+'</h6>'+
     '<div id="bodyContent">' +
     "</div>" +
     "</div>";
     
     const infoWindow = new google.maps.InfoWindow({
-      content:infoWindowContent
+      content:infoWindowContent,
+      maxWidth: 250,
+      maxHeiht:100,
+
     }) ;
     
     marker.addListener('click',()=>{
